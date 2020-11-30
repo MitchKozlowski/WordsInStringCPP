@@ -1,0 +1,54 @@
+#include<iostream>
+
+using namespace std;
+
+int WordCount(char Sentence[]);
+
+int main(){
+    
+         const int LENGTH = 400;
+        char line[LENGTH];
+    
+         cout << "Enter a sentence to calculate how many words are in it: "<<endl;
+        cin.getline(line, LENGTH);
+        
+        cout<<endl<<endl;
+         cout << "The sentence you entered is:" <<endl; 
+    
+         for(int index = 0; line[index] != NULL; index++)
+        {
+            cout << line[index];
+        }
+        
+    cout<<endl<<endl;
+        
+    cout << " The string contains " << WordCount(line) << " words. " << endl << endl;
+    
+    return 0;
+    
+}
+
+int WordCount(char Sentence[])
+{
+    int length = strlen(Sentence);        // gets lenght of sentence and assines it to int length                     
+      int words = 1;
+     
+    if(length > 0 )  {
+    
+    for (int size = 0; length > size; size++)
+    {
+                 
+    if (Sentence[size] == ' ' && Sentence[size-1] != ' ') 
+    words++;
+    }
+    if ( Sentence[0] == ' '/*space*/ )
+      words--; 
+    return words;    
+    }
+    
+    else{
+        int words = 0;
+        return words;
+    }
+    
+}
